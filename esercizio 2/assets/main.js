@@ -1,42 +1,71 @@
-function generateResult() {
-  let inputUser = parseInt(prompt("Inserisci un numero da 1 a 5"));
+let scelta = prompt("scrivi 'pari' o 'dispari'");
 
-  if (inputUser > 5) {
-    alert("oh simia, dal 5 in giù");
-  } else if (inputUser < 1) {
-    alert("oh simia, dal 1 in su");
-  } else {
-    document.getElementById("userNumber1").innerHTML = inputUser;
-  }
+let pari = "pari";
+let dispari = "dispari";
+let sceltaUser = numberUtente();
 
-  // INIZIO PRIMA FUNZIONE
+console.log(`l'utente ha scelto il numero ${sceltaUser}`);
 
 
-  pcNumberSum(inputUser);   
-  
-  ParDisp();
+let numeroRandomPc = pcNumberSum();
+console.log(`il pc ha scelto il numero ${numeroRandomPc}`);
 
+let somma = sum(sceltaUser,numeroRandomPc)
+
+console.log(`questa è la somma: ${somma}`)
+
+let pariDispari = ParDisp(somma)
+
+console.log(`il numero è: ${pariDispari}`)
+
+// funzione numero random pc
+
+function pcNumberSum() {
+  let pcNumber = Math.floor(Math.random() * 5) + 1;
+
+  return pcNumber;
 }
 
+// funzione controllo scelta utente
 
- function pcNumberSum(inputUser) {
-    let pcNumber = Math.floor(Math.random() * 5) + 1;
+function numberUtente() {
+  let sceltaUtente = parseInt(prompt("scrivi un numero da 1 a 5"));
 
-    document.getElementById("pcNumber1").innerHTML = pcNumber;
+  if (sceltaUtente > 5) {
+    alert("oh simia, dal 5 in giù");
+  } else if (sceltaUtente < 1) {
+    alert("oh simia, dal 1 in su");
+  } else {
+  }
 
-    let somma = pcNumber + inputUser;
+  return sceltaUtente;
+}
 
-    console.log(somma);
+// funzione somma numeri random
 
-    return somma
+function sum(pcNumb, userNumb){
+  let somma = pcNumb + userNumb
+  return somma
+}
 
-   }  
-   
-function ParDisp(somma) {
+// funzione per la dichiarazione pari o dispari
 
+function ParDisp() {
+      let controllo = "";
       if (somma % 2 == 0) {
-        console.log("numero pari");
+        controllo = 'pari';
+        return controllo
+      
       } else {
-        console.log("numero dispari");
+        controllo = 'dispari';
+        return controllo
       }
    }
+
+  //  funzione per dichiarare il vincitore
+
+  if(scelta == ParDisp()){
+    console.log("hai Vinto")
+  }else{
+    console.log("hai Perso")
+  }
