@@ -1,7 +1,10 @@
 let scelta = prompt("scrivi 'pari' o 'dispari'");
 
-let pari = "pari";
-let dispari = "dispari";
+let pari = 'pari';
+let dispari = 'dispari';
+
+if (scelta == 'pari' || scelta == 'dispari'){
+  
 let sceltaUser = numberUtente();
 
 console.log(`l'utente ha scelto il numero ${sceltaUser}`);
@@ -33,9 +36,12 @@ function numberUtente() {
 
   if (sceltaUtente > 5) {
     alert("oh simia, dal 5 in giù");
+  
   } else if (sceltaUtente < 1) {
     alert("oh simia, dal 1 in su");
+  
   } else {
+  
   }
 
   return sceltaUtente;
@@ -52,6 +58,7 @@ function sum(pcNumb, userNumb){
 
 function ParDisp() {
       let controllo = "";
+      
       if (somma % 2 == 0) {
         controllo = 'pari';
         return controllo
@@ -69,3 +76,9 @@ function ParDisp() {
   }else{
     console.log("hai Perso")
   }
+
+} else{
+  console.log("dai per piacere")
+}
+
+
